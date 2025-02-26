@@ -15,4 +15,9 @@ jobs:
           java-version: 21
           distribution: 'adopt'
       - name: Gradle Test
-        run: ./gradlew test --no-daemon
+        run: ./gradlew build
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rankup
+          path: build/libs/*.jar
